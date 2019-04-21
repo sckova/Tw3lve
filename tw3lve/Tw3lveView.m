@@ -369,7 +369,12 @@ typedef enum {
     
     if (prefs.loadTweaksPlz)
     {
-        
+        should_load_tweaks = true;
+    }
+    
+    if (!prefs.loadTweaksPlz)
+    {
+        should_load_tweaks = false;
     }
     
    
