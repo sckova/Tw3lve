@@ -407,6 +407,7 @@ void saveOffs() {
         CACHEOFFSET(kernel_forge_pacda_gadget, "KernelForgePacdaGadget");
         CACHEOFFSET(IOUserClient__vtable, "IOUserClientVtable");
         CACHEOFFSET(IORegistryEntry__getRegistryEntryID, "IORegistryEntryGetRegistryEntryID");
+        CACHEOFFSET(allproc, "AllProc");
     #undef CACHEOFFSET
     #undef CACHEADDR
     if (![[NSMutableDictionary dictionaryWithContentsOfFile:offsetsFile] isEqual:dictionary]) {
@@ -428,6 +429,10 @@ void getOffsets() {
     _assert(ISADDR(GETOFFSET(x)), @"Failed to find " #x " offset.", true); \
     SETOFFSET(x, GETOFFSET(x) + kernel_slide); \
     } while (false)
+    //For jelbrekd
+    SETOFFSET(allproc, find_allproc());
+    LOGME("allproc = " ADDR " + " ADDR, GETOFFSET(allproc), kernel_slide);
+    //Okay continue lmao
     GO(trustcache);
     GO(OSBoolean_True);
     GO(osunserializexml);

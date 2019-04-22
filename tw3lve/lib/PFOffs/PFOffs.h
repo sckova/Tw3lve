@@ -48,6 +48,8 @@ typedef struct {
     kptr_t OSBoolean_True;
     kptr_t osunserializexml;
     kptr_t smalloc;
+    
+    kptr_t allproc;
 } offsets_t;
 
 extern offsets_t offs;

@@ -284,8 +284,6 @@ void jelbrek()
         term_kexecute();
         restartSpringBoard();
         
-        
-        
         break;
         
     }
