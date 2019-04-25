@@ -69,7 +69,8 @@ Tw3lveView *sharedController = nil;
     if (access("/var/tmp/is_jailbroken.tw3lve", F_OK) == ERR_SUCCESS)
     {
         [leButton setTitle:@"Jailbroken" forState:UIControlStateNormal];
-        [leButton setEnabled:false];
+        //DEBUG: set to true idgaf
+        [leButton setEnabled:true];
     } else {
         [leButton setTitle:@"Jailbreak" forState:UIControlStateNormal];
         [leButton setEnabled:true];
@@ -273,26 +274,21 @@ void jelbrek()
                 } else {
                     dontLoadTweaks();
                 }
-                
                 finishCydia();
+            } else {
+                NOTICE(NSLocalizedString(@"Sileo has not been finished. I should've disabled the button.", nil), 1, 1);
             }
         } else {
-            NOTICE(NSLocalizedString(@"A12 Device Has Been Detected! Cydia Will Not Be Installed! You Do Have: TFP0, And R/W.", nil), 1, 1);
+            NOTICE(NSLocalizedString(@"A12 Device Has Been Detected! Cydia Will Not Be Installed! You Do Have: TFP0, And R/W. Please Select Install Sileo Instead. (Reboot Needed)", nil), 1, 1);
         }
         
         
         term_kexecute();
-        restartSpringBoard();
+        //restartSpringBoard();
         
         break;
         
     }
-}
-
-- (IBAction)resetOwO:(id)sender {
-   
-    
-    restoreFS = true;
 }
 
 
@@ -375,6 +371,15 @@ typedef enum {
         should_load_tweaks = false;
     }
     
+    if (prefs.installSileoPlz)
+    {
+        cydia = true;
+    }
+    
+    if (!prefs.installSileoPlz)
+    {
+        cydia = true;
+    }
    
     runOnMainQueueWithoutDeadlocking(^{
         logToUI(@"\n[*] Staring Jailbreak Thread...");

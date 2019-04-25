@@ -996,6 +996,7 @@ void addToArray(NSString *package, NSMutableArray *array)
     [array addObject:strToAdd];
 }
 
+
 void extractSubstrate()
 {
     NSString *substrateFile = get_path_res(@"bootstrap/Substrate.tar");
@@ -1068,6 +1069,7 @@ void extractLZMA()
     }
 }
 
+
 void extractDPKG()
 {
     NSString *resFile = get_path_res(@"bootstrap/DPKG.tar");
@@ -1089,6 +1091,7 @@ void extractDPKG()
         trust_file(fileToInject);
     }
 }
+
 
 void fixFS()
 {
@@ -1144,6 +1147,7 @@ void createLocalRepo()
     // Workaround for what appears to be an apt bug
     ensure_symlink("/var/lib/tw3lve/apt/./Packages", "/var/lib/apt/lists/_var_lib_tw3lve_apt_._Packages");
 }
+
 
 void disableStashing()
 {
@@ -1353,7 +1357,6 @@ void installCydia()
     }
 }
 
-
 void loadTweaks()
 {
     clean_file("/var/tmp/.substrated_disable_loader");
@@ -1363,3 +1366,72 @@ void dontLoadTweaks()
 {
     _assert(create_file("/var/tmp/.substrated_disable_loader", 0, 644), @"Unable To Disable Installation Of Tweaks!", true);
 }
+
+
+//////////SILEO/////////////
+void extractSubZeroLol()
+{
+    NSString *substrateFile = get_path_res(@"bootstrap/sileo/sub_sileo.tar");
+    ArchiveFile *subBSFile = [ArchiveFile archiveWithFile:substrateFile];
+    [subBSFile extractToPath:@"/"];
+    
+    chdir("/");
+    NSMutableArray *arrayToInject = [NSMutableArray new];
+    NSDictionary *filesToInject = subBSFile.files;
+    for (NSString *file in filesToInject.allKeys) {
+        if (cdhashFor(file) != nil) {
+            [arrayToInject addObject:file];
+        }
+    }
+    LOGME("Injecting...");
+    for (NSString *fileToInject in arrayToInject)
+    {
+        LOGME("CURRENTLY INJECTING: %@", fileToInject);
+        trust_file(fileToInject);
+    }
+}
+
+
+void extractTest()
+{
+    NSString *substrateFile = get_path_res(@"bootstrap/sileo/test.tar");
+    ArchiveFile *subBSFile = [ArchiveFile archiveWithFile:substrateFile];
+    [subBSFile extractToPath:@"/"];
+    
+    chdir("/");
+}
+
+void installSileo()
+{
+    
+    NSMutableArray *debArray = [NSMutableArray new];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSString *bundleRoot = [[[NSBundle mainBundle] bundlePath] stringByAppendingString:@"/bootstrap/sileo/debs/"];
+    NSArray *dirContents = [fm contentsOfDirectoryAtPath:bundleRoot error:nil];
+    
+    int f = open("/.installed_tw3lve", O_RDONLY);
+    int f2 = open("/.installed_sileo_t3", O_RDONLY);
+    if (f == -1)
+    {
+        if (f2 == -1)
+        {
+            LOGME("We Need To Install Tw3lveStrap");
+            LOGME("[Tw3lveStrap] Extracting Tw3lveStrap... (Substitute)");
+            extractRes();
+            extractSubZeroLol();
+            extractTest();
+            LOGME("[Tw3lveStrap] Extracted! (Substitute)");
+            
+            pid_t pd;
+            posix_spawn(&pd, "/bin/launchctl", NULL, NULL, (char **)&(const char*[]){"launchctl", "load",  "/Library/LaunchDaemons/com.ex.substituted.plist", NULL}, NULL);
+            waitpid(pd, NULL, 0);
+            
+            execCmd("/jb/jelbrekd_client", NULL);
+            
+        }
+        
+    } else {
+        NOTICE(NSLocalizedString(@"Cydia Detected! Please Restore RootFS Before Using Sileo!", nil), 1, 1);
+    }
+}
+

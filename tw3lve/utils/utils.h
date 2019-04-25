@@ -57,3 +57,4 @@ bool restartSpringBoard(void);
 void finishCydia(void);
 void loadTweaks(void);
 void dontLoadTweaks(void);
+void installSileo(void);

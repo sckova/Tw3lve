@@ -29,7 +29,7 @@
     [exploitTypeBar setSelectedSegmentIndex:[[NSUserDefaults standardUserDefaults] integerForKey:EXPLOITTYPE]];
     [restoreFSSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:RESTORE_FS]];
     [loadTweaksSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:LOAD_TWEAKS]];
-    //[sileoSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:INSTALL_SILEO]];
+    [sileoSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:INSTALL_SILEO]];
 }
 
 - (IBAction)rootFSChanges:(id)sender {
