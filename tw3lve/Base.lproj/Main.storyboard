@@ -285,7 +285,7 @@
                                 </connections>
                             </switch>
                             <imageView userInteractionEnabled="NO" alpha="0.55000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Eok-DO-Kdc">
-                                <rect key="frame" x="166.66666666666666" y="519" width="81" height="44"/>
+                                <rect key="frame" x="166.66666666666666" y="672" width="81" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="81" id="6cG-EX-HTe"/>
@@ -297,16 +297,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHs-6A-g5b">
-                                <rect key="frame" x="184.66666666666666" y="525" width="45" height="33"/>
-                                <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="17"/>
-                                <state key="normal" title="Home">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="modal" modalTransitionStyle="flipHorizontal" id="2ty-MO-eNB"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exploit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezB-kn-pvj">
                                 <rect key="frame" x="163" y="369" width="88" height="36"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="30"/>
@@ -326,40 +316,50 @@
                                     <action selector="exploitTypeChanges:" destination="qXH-dh-B3i" eventType="valueChanged" id="bkC-ZF-7po"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHs-6A-g5b">
+                                <rect key="frame" x="184.66666666666666" y="678" width="45" height="33"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="17"/>
+                                <state key="normal" title="Home">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="modal" modalTransitionStyle="flipHorizontal" id="2ty-MO-eNB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="7Vh-dx-Kup" firstAttribute="top" secondItem="y91-iJ-s4r" secondAttribute="bottom" constant="53" id="0BC-oM-Z89"/>
                             <constraint firstItem="j79-Om-v0g" firstAttribute="leading" secondItem="Xoy-VL-HWi" secondAttribute="leadingMargin" constant="50" id="2pI-5R-Zd5"/>
                             <constraint firstItem="7Vh-dx-Kup" firstAttribute="centerX" secondItem="Xoy-VL-HWi" secondAttribute="centerX" id="75u-ck-VrO"/>
-                            <constraint firstItem="Eok-DO-Kdc" firstAttribute="top" secondItem="OvM-8e-ydY" secondAttribute="bottom" constant="69" id="7hL-GA-TAf"/>
                             <constraint firstItem="Gko-we-F3a" firstAttribute="leading" secondItem="Xoy-VL-HWi" secondAttribute="leadingMargin" constant="50" id="BIu-Q0-oxQ"/>
-                            <constraint firstItem="cHs-6A-g5b" firstAttribute="centerX" secondItem="Xoy-VL-HWi" secondAttribute="centerX" id="EJD-XD-agh"/>
                             <constraint firstItem="VbJ-qm-nK9" firstAttribute="top" secondItem="7Vh-dx-Kup" secondAttribute="bottom" constant="8" id="GK0-Xe-Vk5"/>
                             <constraint firstItem="0dn-zn-LHT" firstAttribute="leading" secondItem="Xoy-VL-HWi" secondAttribute="leading" id="IFs-NN-I66"/>
+                            <constraint firstItem="Vn0-Xo-Igx" firstAttribute="bottom" secondItem="Eok-DO-Kdc" secondAttribute="bottom" constant="20" id="Is1-58-Cmf"/>
                             <constraint firstItem="87D-OR-wcr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VbJ-qm-nK9" secondAttribute="trailing" constant="8" symbolic="YES" id="JnN-rs-4Vk"/>
                             <constraint firstAttribute="trailing" secondItem="0dn-zn-LHT" secondAttribute="trailing" id="Kxn-x8-L6c"/>
+                            <constraint firstItem="Eok-DO-Kdc" firstAttribute="centerX" secondItem="Xoy-VL-HWi" secondAttribute="centerX" id="MqD-aR-XJQ"/>
                             <constraint firstItem="Gko-we-F3a" firstAttribute="top" secondItem="VbJ-qm-nK9" secondAttribute="bottom" constant="8" id="Rym-6k-gGF"/>
                             <constraint firstItem="j79-Om-v0g" firstAttribute="top" secondItem="Gko-we-F3a" secondAttribute="bottom" constant="8" id="V5i-De-vwU"/>
                             <constraint firstItem="VbJ-qm-nK9" firstAttribute="leading" secondItem="Xoy-VL-HWi" secondAttribute="leadingMargin" constant="50" id="XK5-lB-Gmh"/>
                             <constraint firstItem="kbd-YZ-NaJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="j79-Om-v0g" secondAttribute="trailing" constant="8" symbolic="YES" id="Zqa-q8-hdf"/>
-                            <constraint firstItem="cHs-6A-g5b" firstAttribute="top" secondItem="OvM-8e-ydY" secondAttribute="bottom" constant="75" id="ek9-Vf-L06"/>
                             <constraint firstItem="6MC-9y-Irj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gko-we-F3a" secondAttribute="trailing" constant="8" symbolic="YES" id="fOd-YK-ZTy"/>
                             <constraint firstItem="ezB-kn-pvj" firstAttribute="centerX" secondItem="Xoy-VL-HWi" secondAttribute="centerX" id="ftB-Qd-Eau"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6MC-9y-Irj" secondAttribute="trailing" constant="46" id="gi9-RI-qXC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kbd-YZ-NaJ" secondAttribute="trailing" constant="46" id="i52-OH-jJ6"/>
                             <constraint firstItem="y91-iJ-s4r" firstAttribute="top" secondItem="Vn0-Xo-Igx" secondAttribute="top" constant="71" id="kTa-UP-Lx0"/>
                             <constraint firstItem="6MC-9y-Irj" firstAttribute="top" secondItem="87D-OR-wcr" secondAttribute="bottom" constant="1" id="kn1-Gc-k2I"/>
+                            <constraint firstItem="Vn0-Xo-Igx" firstAttribute="bottom" secondItem="cHs-6A-g5b" secondAttribute="bottom" constant="25" id="leq-mm-PKD"/>
                             <constraint firstItem="OvM-8e-ydY" firstAttribute="centerX" secondItem="Xoy-VL-HWi" secondAttribute="centerX" id="lw3-9S-fIY"/>
                             <constraint firstAttribute="bottom" secondItem="0dn-zn-LHT" secondAttribute="bottom" id="mlT-aF-LiB"/>
                             <constraint firstItem="ezB-kn-pvj" firstAttribute="top" secondItem="j79-Om-v0g" secondAttribute="bottom" constant="45" id="nKI-uC-oKv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="87D-OR-wcr" secondAttribute="trailing" constant="46" id="oNE-sf-7Qv"/>
-                            <constraint firstItem="Eok-DO-Kdc" firstAttribute="centerX" secondItem="Xoy-VL-HWi" secondAttribute="centerX" id="ocJ-v0-2vf"/>
                             <constraint firstItem="87D-OR-wcr" firstAttribute="top" secondItem="Xoy-VL-HWi" secondAttribute="topMargin" constant="213" id="rr2-5h-dNI"/>
                             <constraint firstItem="0dn-zn-LHT" firstAttribute="top" secondItem="Xoy-VL-HWi" secondAttribute="top" id="u6K-ES-GSR"/>
                             <constraint firstItem="kbd-YZ-NaJ" firstAttribute="top" secondItem="6MC-9y-Irj" secondAttribute="bottom" constant="1" id="xI0-Lr-W8J"/>
                             <constraint firstItem="OvM-8e-ydY" firstAttribute="top" secondItem="ezB-kn-pvj" secondAttribute="bottom" constant="17" id="z5R-qS-Tyg"/>
                             <constraint firstItem="y91-iJ-s4r" firstAttribute="centerX" secondItem="Xoy-VL-HWi" secondAttribute="centerX" id="zNF-2Y-ogV"/>
+                            <constraint firstItem="cHs-6A-g5b" firstAttribute="centerX" secondItem="Xoy-VL-HWi" secondAttribute="centerX" id="zo2-ca-XXu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vn0-Xo-Igx"/>
                     </view>
