@@ -10,10 +10,13 @@ iOS 12-12.1.2 Jailbreak (WORK IN PROGRESS DO NOT USE)
 * Remap TFP Set HSP      
 * Remount RootFS
 * GUI
-* Other jailbreak detection to avoid issues  
-
-## TODO:
+* Other jailbreak detection to avoid issues
 * Install Bootstrap
 * Tweak injection
-* Fix Bugs (Performance)    
+
+## TODO:
+* Fix Bugs (Performance
+* Use Substituite
+* Sileo
+* Jelbrekd
 
