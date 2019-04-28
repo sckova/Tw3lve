@@ -307,8 +307,8 @@
                                 <rect key="frame" x="51.666666666666657" y="422" width="311" height="29"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <segments>
-                                    <segment title="MatchSwap"/>
-                                    <segment title="MatchSwap2"/>
+                                    <segment title="MachSwap"/>
+                                    <segment title="MachSwap2"/>
                                     <segment title="Voucher_Swap"/>
                                 </segments>
                                 <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
